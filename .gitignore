@@ -1,7 +1,3 @@
-OpenCV-VisualStudio/openCVTry/openCVTry/x64/
-OpenCV-VisualStudio/openCVTry/.vs/
-OpenCV-VisualStudio/openCVTry/openCVTry/openCVTry.vcxproj.user
-OpenCV-VisualStudio/openCVTry/openCVTry/openCVTry.vcxproj.filters
-OpenCV-VisualStudio/openCVTry/openCVTry/openCVTry.vcxproj
-OpenCV-VisualStudio/openCVTry/openCVTry.sln
-OpenCV-VisualStudio/openCVTry/x64/Debug/openCVTry.pdb
+OpenCV-VisualStudio/openCVTry/**
+OpenCV-VisualStudio/MSER_Others/**
+QTApps/**
