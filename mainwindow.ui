@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>680</width>
+    <height>693</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/Background/mainBackground) no-repeat center center fixed;
+background-repeat: no-repeat;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="detectVideo">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>570</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: 75 12pt &quot;URW Bookman L&quot;;
+background-color: rgb(114, 159, 207);</string>
+    </property>
+    <property name="text">
+     <string>Detect video</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="parameterSettings">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>620</y>
+      <width>221</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: 75 12pt &quot;URW Bookman L&quot;;
+background-color: rgb(114, 159, 207);</string>
+    </property>
+    <property name="text">
+     <string>Settings</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="selectVideo">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>530</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: 75 12pt &quot;URW Bookman L&quot;;
+background-color: rgb(114, 159, 207);</string>
+    </property>
+    <property name="text">
+     <string>Select video</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="detectImage">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>570</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: 75 12pt &quot;URW Bookman L&quot;;
+background-color: rgb(114, 159, 207);</string>
+    </property>
+    <property name="text">
+     <string>Detect image</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="selectImage">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>530</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: 75 12pt &quot;URW Bookman L&quot;;
+background-color: rgb(114, 159, 207);</string>
+    </property>
+    <property name="text">
+     <string>Select image</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="selectedVideoLabel">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>430</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: 75 12pt &quot;URW Bookman L&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Selected Video</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="selectedImageLabel">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>430</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: 75 12pt &quot;URW Bookman L&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Selected Image</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="selectedImageUrl">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>460</y>
+      <width>311</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: 75 12pt &quot;URW Bookman L&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Empty</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="selectedVideoUrl">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>460</y>
+      <width>311</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: 75 12pt &quot;URW Bookman L&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Empty</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="author">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>650</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: italic 10pt &quot;URW Bookman L&quot;;</string>
+    </property>
+    <property name="text">
+     <string>By Bence Olay</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Title">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>30</y>
+      <width>271</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>URW Bookman L</family>
+      <pointsize>22</pointsize>
+      <weight>50</weight>
+      <italic>true</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: italic 22pt &quot;URW Bookman L&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Object detection with OpenCV &amp; QT</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exit">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>650</y>
+      <width>81</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(114, 159, 207);
+font: 75 12pt &quot;URW Bookman L&quot;;
+background-color: rgb(114, 159, 207);</string>
+    </property>
+    <property name="text">
+     <string>Exit</string>
+    </property>
+   </widget>
+   <zorder>Title</zorder>
+   <zorder>detectVideo</zorder>
+   <zorder>parameterSettings</zorder>
+   <zorder>selectVideo</zorder>
+   <zorder>detectImage</zorder>
+   <zorder>selectImage</zorder>
+   <zorder>selectedVideoLabel</zorder>
+   <zorder>selectedImageLabel</zorder>
+   <zorder>selectedImageUrl</zorder>
+   <zorder>selectedVideoUrl</zorder>
+   <zorder>author</zorder>
+   <zorder>exit</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
