@@ -64,7 +64,7 @@ void ImageProcessing::detectImage()
 
 void ImageProcessing::showDetections(std::string wName, cv::Mat img, cv::Scalar color)
 {
-	cv::Mat tmp = img.clone();
+    cv::Mat tmp = img.clone();
     for (size_t i = 0; i < cutingValues.size(); i++) {
         layersBToW[i].drawAllDetection(tmp, color);
         layersWToB[i].drawAllDetection(tmp, color);
@@ -80,12 +80,11 @@ MSERObject ImageProcessing::detectClickedObject(cv::Point p)
     double minArea = -1;
 
     for (size_t i = 0; i < cutingValues.size(); i++) {
-        //#pragma omp parallel for
+        #pragma omp parallel for
         for (size_t j = 0; j < layersBToW[i].getAllMSERObjects().size(); j++) {
             MSERObject act = layersBToW[i].getAllMSERObjects()[j];
 
             if (pointInsideMSER(act, p, shrinkRate)) { // Check inclusion (THE clicked point is SKRINKED down to the process image!)
-                std::cout << act << std::endl;
                 if (act.getArea() < minArea || 0 > minArea) { // Save the smallest inclusion (0 > -> it's the first)
                     mser = act;
                     minArea = mser.getArea();
@@ -93,20 +92,18 @@ MSERObject ImageProcessing::detectClickedObject(cv::Point p)
 			}
         }
 
-        //#pragma omp parallel for
+        #pragma omp parallel for
         for (size_t j = 0; j < layersWToB[i].getAllMSERObjects().size(); j++) {
             MSERObject act = layersWToB[i].getAllMSERObjects()[j];
 
             if (pointInsideMSER(act, p, shrinkRate)) { // Check inclusion (THE clicked point is SKRINKED down to the process image!)
-                std::cout << act << std::endl;
                 if (act.getArea() < minArea || 0 > minArea) { // Save the smallest inclusion (0 > -> it's the first)
                     mser = act;
                     minArea = mser.getArea();
                 }
             }
         }
-
-	}
+    }
     return mser;
 }
 
@@ -177,16 +174,7 @@ void ImageProcessing::setCuttingValues()
         int cAvg = static_cast<int>(std::floor(Click::object.colorAvg));
         std::cout << "Object average color: " << cAvg << std::endl;
     }
-    //     std::vector<int> calculatedLevels;
-    //
-    //     calculatedLevels.push_back( cAvg - cAvg % 10 > 0    ? cAvg - cAvg % 10 : 0);
-    //     calculatedLevels.push_back( cAvg + cAvg % 10 < 255  ? cAvg + cAvg % 10 : 255);
-    //     calculatedLevels.push_back(Click::object.gl);
-    //
-    //     cutingValues = calculatedLevels;
-    // } else {
-        cutingValues = defaultCuttingValues;
-    // }
+
     std::cout << "cutingValues.size(): " << cutingValues.size() << std::endl;
 	layersBToW.clear();
 	layersWToB.clear();
@@ -229,7 +217,7 @@ void ImageProcessing::setImage(cv::Mat image)
         shrinkedImg = cv::Mat(image);
 		shrinkRate = 1;
 	}
-	// Blur the image a bit
+    // Blur the image
     if(MSER::gaussBlurKernelSize.width % 2 != 0) cv::GaussianBlur(shrinkedImg, shrinkedImg, MSER::gaussBlurKernelSize, 0);
     else  {
         cv::GaussianBlur(shrinkedImg, shrinkedImg, cv::Size(MSER::gaussBlurKernelSize.width + 1,
@@ -239,10 +227,6 @@ void ImageProcessing::setImage(cv::Mat image)
     // Make it black and white
     processImg = cv::Mat();
     cv::cvtColor(shrinkedImg, processImg, cv::COLOR_BGR2GRAY, CV_8U);
-	
-	// This will be set at the time of detection.
-	cutingValues = {};
-    cv::imshow("processImg", processImg);
 }
 
 int ImageProcessing::detectedObjects()

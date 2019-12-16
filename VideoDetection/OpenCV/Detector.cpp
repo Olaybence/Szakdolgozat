@@ -142,6 +142,7 @@ void Detector::playImage() {
             while(isWindowOpen(wName)) {
                 if(Click::done) {
                     imgProc.detectImage();
+                    Click::object = imgProc.detectClickedObject(Click::point);
                     if(!Click::object.empty()) {
                         showImageWithDet();
                     } else {
@@ -155,7 +156,6 @@ void Detector::playImage() {
                     break;
                 }
             }
-            std::cout << "checking!"<< std::endl;
         break;
         default:
             std::string text = "There's no image playing mode like this.\nPlease choose one from the settings!";

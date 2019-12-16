@@ -42,7 +42,6 @@ void PSettings::on_buttonBox_clicked(QAbstractButton *button)
     std::cout << "on_buttonBox_clicked button-text:" << button->text().toStdString() << std::endl;
     std::string bName = button->text().toStdString();
     if(bName == "Apply") { // Apply clicked
-        std::cout << "Settings applied" << std::endl;
         saveSettings();
     } else if(bName == "&OK") { // OK clicked
         saveSettings();

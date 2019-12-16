@@ -43,9 +43,7 @@ public:
     // String white to black "WToB" for unique layerName's
     static const std::string WToB;
 	
-	Layer(int gl, std::string direction);
-	Layer(int gl, std::string direction, cv::Size size, int type);
-	Layer(int gl, std::string direction, cv::Mat image);
+    Layer(int gl, std::string direction);
 	~Layer();
 
     // Set a pixel's value (in the bool matrix) depending on the given color

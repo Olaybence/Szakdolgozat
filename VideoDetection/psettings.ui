@@ -125,7 +125,7 @@
      <height>61</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,1,5">
+   <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,0,5">
     <item>
      <widget class="QLabel" name="ProcRes">
       <property name="text">
@@ -136,10 +136,10 @@
     <item>
      <widget class="QSpinBox" name="maxResolution">
       <property name="minimum">
-       <number>50</number>
+       <number>10</number>
       </property>
       <property name="maximum">
-       <number>1000000</number>
+       <number>5000</number>
       </property>
      </widget>
     </item>

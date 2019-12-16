@@ -9,12 +9,6 @@ Layer::Layer(int gl, std::string direction)
     dirBToW(direction == BToW),
 	layerName(std::to_string(gl) + "layer" + direction) {}
 
-Layer::Layer(int gl, std::string direction, cv::Mat image)
-	: grayLevel(gl),
-    dirBToW(direction == BToW),
-    img(image),
-    layerName(std::to_string(gl) + "layer" + direction) {}
-
 Layer::~Layer()
 {
 }

@@ -32,7 +32,7 @@ private:
 
     // The cutting values for the layers
     // This will make the cut in the 0-255 range of pixel value
-    std::vector<int> cutingValues;
+    std::vector<int> cutingValues = defaultCuttingValues;
 
     // It goes throw the whole procesImg
     // and give the pixel value to the layers
@@ -47,7 +47,7 @@ public:
 	
     // Set the image
     void setImage(cv::Mat img);
-	
+
     // Set the cutting values
     // Set the Layers pixels
     // Make the MSERs from the Layers
@@ -56,11 +56,11 @@ public:
     void detectImage();
 
     // Set the image and call detectImage()
-	void detectImage(cv::Mat inImg);
+    void detectImage(cv::Mat inImg);
 
     // Go throw all layers' MSERs and
     // check if the MSER suitable for the click
-	MSERObject detectClickedObject(cv::Point p);
+    MSERObject detectClickedObject(cv::Point p);
 
     // Go throw all layers' MSERs and
     // check if the MSER is the tracked object
@@ -78,8 +78,8 @@ public:
     // Otherwise use the defaultCV-s
     void setCuttingValues();
 
-	// Returns the number of detected objects on the different layers.
-	int detectedObjects();
-	double getScaling();
+    // Returns the number of detected objects on the different layers.
+    int detectedObjects();
+    double getScaling();
 };
 
