@@ -21,12 +21,6 @@ private:
 	// -> origImg = shrinkRate * shrinkedImg
 	double shrinkRate;
 
-    // imgType = imgGrayscale.type()
-    int imgType;
-
-    // imgSize = imgGrayscale.size()
-    cv::Size imgSize;
-
     // Layers from black to white
     std::vector<Layer> layersBToW;
 

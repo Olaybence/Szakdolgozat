@@ -230,17 +230,19 @@ void ImageProcessing::setImage(cv::Mat image)
 		shrinkRate = 1;
 	}
 	// Blur the image a bit
-	cv::GaussianBlur(shrinkedImg, shrinkedImg, MSER::gaussBlurKernelSize, 0);
+    if(MSER::gaussBlurKernelSize.width % 2 != 0) cv::GaussianBlur(shrinkedImg, shrinkedImg, MSER::gaussBlurKernelSize, 0);
+    else  {
+        cv::GaussianBlur(shrinkedImg, shrinkedImg, cv::Size(MSER::gaussBlurKernelSize.width + 1,
+                                                            MSER::gaussBlurKernelSize.width + 1), 0);
+    }
 
     // Make it black and white
     processImg = cv::Mat();
     cv::cvtColor(shrinkedImg, processImg, cv::COLOR_BGR2GRAY, CV_8U);
-
-    imgSize = processImg.size();
-    imgType = processImg.type();
 	
 	// This will be set at the time of detection.
 	cutingValues = {};
+    cv::imshow("processImg", processImg);
 }
 
 int ImageProcessing::detectedObjects()
