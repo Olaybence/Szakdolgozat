@@ -38,10 +38,8 @@ void MainWindow::on_selectImage_clicked()
         MSER::actImage = cvImg;
         MSER::printMSER(std::cout);
     } else { // Invalid - cv::Mat couldn't load it
-        QMessageBox msg;
-        std::string tmp = "Invalid image format! (for OpenCV - cv::Mat)";
-        QString error(tmp.c_str());
-        msg.setText(error);
+        std::string tmp = "Invalid image format!";
+        QMessageBox msg(QMessageBox::Critical,"Wrong file",tmp.c_str());
         msg.exec();
     }
 }
@@ -64,10 +62,8 @@ void MainWindow::on_selectVideo_clicked()
         MSER::actVideo = cvVideo;
         MSER::printMSER(std::cout);
     } else { // Invalid - cv::VideoCapture couldn't load it
-        QMessageBox msg;
-        std::string tmp = "Invalid video format! (for OpenCV - cv::VideoCapture)";
-        QString error(tmp.c_str());
-        msg.setText(error);
+        std::string tmp = "Invalid video format!";
+        QMessageBox msg(QMessageBox::Critical,"Wrong file",tmp.c_str());
         msg.exec();
     }
 }
@@ -80,10 +76,8 @@ void MainWindow::on_parameterSettings_clicked()
 void MainWindow::on_detectImage_clicked()
 {
     if(MSER::actImageUrl.isEmpty()) {
-        QMessageBox msg;
-        std::string tmp = "Missing image!";
-        QString error(tmp.c_str());
-        msg.setText(error);
+        std::string tmp = "Please select an image before detection!";
+        QMessageBox msg(QMessageBox::Warning,"Missing image",tmp.c_str());
         msg.exec();
         return;
     }
@@ -96,10 +90,8 @@ void MainWindow::on_detectImage_clicked()
 void MainWindow::on_detectVideo_clicked()
 {
     if(MSER::actVideoUrl.isEmpty()) {
-        QMessageBox msg;
-        std::string tmp = "Missing video!";
-        QString error(tmp.c_str());
-        msg.setText(error);
+        std::string tmp = "Please select an video before detection!";
+        QMessageBox msg(QMessageBox::Warning,"Missing video",tmp.c_str());
         msg.exec();
         return;
     }
