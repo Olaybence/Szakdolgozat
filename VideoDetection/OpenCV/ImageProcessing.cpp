@@ -114,19 +114,19 @@ MSERObject ImageProcessing::trackClickedObject()
     cv::Point clickedCenter = Click::object.getCenter();
     std::cout << "Tracking: " << Click::object << std::endl;
 
-    double minArea = -1;
-
+    double minAreaDifference = -1;
     for (size_t i = 0; i < cutingValues.size(); i++) {
         #pragma omp parallel for
         for (size_t j = 0; j < layersBToW[i].getAllMSERObjects().size(); j++) {
             MSERObject act = layersBToW[i].getAllMSERObjects()[j];
 
+            double areaDifference = std::abs(clickedArea - act.getArea());
             if (pointInsideMSER(act, clickedCenter, 1) &&
-                    std::abs(clickedArea - act.getArea()) < MSER::maxDiversity) { // Check inclusion
+                   areaDifference < MSER::maxDiversity) { // Check inclusion
 
-                if (act.getArea() < minArea || 0 > minArea) { // Save the smallest inclusion (0 > -> it's the first)
+                if (areaDifference < minAreaDifference || 0 > minAreaDifference) { // Save the smallest area difference (0 > -> it's the first)
                     mser = act;
-                    minArea = mser.getArea();
+                    minAreaDifference = areaDifference;
                 }
             }
         }
@@ -135,12 +135,13 @@ MSERObject ImageProcessing::trackClickedObject()
         for (size_t j = 0; j < layersWToB[i].getAllMSERObjects().size(); j++) {
             MSERObject act = layersWToB[i].getAllMSERObjects()[j];
 
+            double areaDifference = std::abs(clickedArea - act.getArea());
             if (pointInsideMSER(act, clickedCenter, 1) &&
-                    std::abs(clickedArea - act.getArea()) < MSER::maxDiversity) { // Check inclusion
+                     areaDifference < MSER::maxDiversity) { // Check inclusion
 
-                if (act.getArea() < minArea || 0 > minArea) { // Save the smallest inclusion (0 > -> it's the first)
+                if (areaDifference < minAreaDifference || 0 > minAreaDifference) { // Save the smallest area difference (0 > -> it's the first)
                     mser = act;
-                    minArea = mser.getArea();
+                    minAreaDifference = areaDifference;
                 }
             }
         }
