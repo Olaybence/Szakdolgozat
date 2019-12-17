@@ -90,7 +90,7 @@ void MainWindow::on_detectImage_clicked()
 void MainWindow::on_detectVideo_clicked()
 {
     if(MSER::actVideoUrl.isEmpty()) {
-        std::string tmp = "Please select an video before detection!";
+        std::string tmp = "Please select a video before detection!";
         QMessageBox msg(QMessageBox::Warning,"Missing video",tmp.c_str());
         msg.exec();
         return;
