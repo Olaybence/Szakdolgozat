@@ -136,7 +136,7 @@ void Layer::displayLayerWithDet(cv::Scalar c)
     for (size_t i = 0; i < mserObjects.size(); i++) {
 		mserObjects[i].drawOntoImage(tmp, scaling, c);
 	}
-    cv::imshow(layerName,tmp);
+    display(layerName,tmp);
 }
 
 void Layer::drawDetections(cv::Mat& image, size_t n, cv::Scalar color)

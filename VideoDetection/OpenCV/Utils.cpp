@@ -48,6 +48,10 @@ bool isWindowOpen(std::string wName) {
     return line.find(wName) != std::string::npos;
 }
 
+void display(std::string wName, cv::Mat img) {
+    cv::namedWindow(wName,cv::WINDOW_NORMAL);
+    cv::imshow(wName,img);
+}
 
 // ExtremeValues ///////////////////
 

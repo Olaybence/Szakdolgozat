@@ -69,7 +69,7 @@ void ImageProcessing::showDetections(std::string wName, cv::Mat img, cv::Scalar 
         layersBToW[i].drawAllDetection(tmp, color);
         layersWToB[i].drawAllDetection(tmp, color);
     }
-    cv::imshow(wName,tmp);
+    display(wName,tmp);
 }
 
 MSERObject ImageProcessing::detectClickedObject(cv::Point p)
@@ -158,12 +158,12 @@ void ImageProcessing::showLayers(cv::Mat image)
 		//std::cout << "mserObjects.size()" << layersBToW[i].mserObjects.size() << std::endl;
 		cv::Mat tmp = image.clone();
         layersWToB[i].drawAllDetection(tmp,MSER::drawingColor);
-        cv::imshow(layersBToW[i].layerName,tmp);
+        display(layersBToW[i].layerName,tmp);
 
 		//std::cout << "mserObjects.size()" << layersBToW[i].mserObjects.size() << std::endl;
 		tmp = image.clone();
         layersWToB[i].drawAllDetection(tmp, MSER::drawingColor);
-        cv::imshow(layersWToB[i].layerName,tmp);
+        display(layersWToB[i].layerName,tmp);
 	}
 }
 

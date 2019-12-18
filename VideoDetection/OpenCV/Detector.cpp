@@ -169,7 +169,7 @@ void Detector::showImage()
 {
     std::cout << "Just showImage()!" << std::endl;
 	if (!wName.empty() && !img.empty()) {
-        cv::imshow(wName,img);
+        display(wName,img);
     } else {
         if (wName.empty()) std::cout << "No window name given!" << std::endl;
         if (img.empty()) std::cout << "No image given!" << std::endl;
@@ -191,12 +191,12 @@ void Detector::showImageWithDet()
             Click::object.drawOntoImage(withDet, imgProc.getScaling(), MSER::drawingColor);
 
             // Output the result
-            cv::imshow(wName,withDet);
+            display(wName,withDet);
         } else {
             std::cout << "Unfortionately no obejt detected!" << std::endl;
 
             // Output the result
-            cv::imshow(wName,img);
+            display(wName,img);
         }
     } else {
         if (!wName.empty()) std::cout << "No window name given!" << std::endl;

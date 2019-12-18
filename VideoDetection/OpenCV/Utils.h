@@ -34,6 +34,8 @@ bool isWindowOpen(std::string wName);
 // Executes a linux command and returns the output of it
 std::string exec(const char* cmd);
 
+void display(std::string wName, cv::Mat img);
+
 // Global structs
 
 // Extreme values
