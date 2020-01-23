@@ -8,8 +8,8 @@
 #include <omp.h>
 
 #include <opencv2/opencv.hpp>
-#include "opencv2/imgproc.hpp"
-#include "opencv2/highgui.hpp"
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 #include "OpenCV/Utils.h"
 #include "OpenCV/Detector.h"
@@ -20,6 +20,7 @@
 
 int main(int argc, char *argv[])
 {
+    printf("OpenCV: %s", cv::getBuildInformation().c_str());
     MSER::loadFromFile();
     QApplication a(argc, argv);
     MainWindow w;
